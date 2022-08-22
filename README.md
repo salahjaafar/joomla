@@ -1,2 +1,2 @@
-# joomla
-hello world
+# Joomla CMS
+Basic Component Hello World
