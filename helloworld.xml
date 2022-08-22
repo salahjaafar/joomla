@@ -1,45 +1,93 @@
 <?xml version="1.0" encoding="utf-8"?>
-<extension type="component" method="upgrade">
-<!-- 'version' attribute for extension tag is no longer used -->
-
-    <name>Hello World</name>
-    <!-- The following elements are optional and free of formatting constraints -->
-    <creationDate>December 2020</creationDate>
-    <!-- Dummy author, feel free to replace anywhere you see it-->
-    <author>John Smith</author>
-    <authorUrl>https://smith.ca</authorUrl>
-    <copyright>John Smith</copyright>
-    <license>GPL v3</license>
-    <!--  The version string is recorded in the components table -->
-    <version>0.0.1</version>
-    <!-- The description is optional and defaults to the name -->
-    <description>
-        A hello world component!
-    </description>
-
-    <!-- This is the PHP namespace under which the extension's
-    code is organised. It should follow this format:
+<extension type="component" version="4.0" method="upgrade">
+    <name>com_helloworld</name>
+    <creationDate>2022-08-22</creationDate>
+    <copyright>2022 salah</copyright>
+    <license>GNU General Public License version 2 ou version ultérieure ; Voir LICENSE.txt</license>
+    <author>salah</author>
+    <authorEmail>salahwebmaster@gmail.com</authorEmail>
+    <authorUrl>https://www.rn.tn</authorUrl>
+    <version>CVS: 1.0.0</version>
+    <description>COM_HELLOWORLD_XML_DESCRIPTION</description>
+    <namespace path="src">Helloworld\Component\Helloworld</namespace>
     
-    Vendor\Component\ComponentName
-
-    "Vendor" can be your company or your own name
     
-    The "ComponentName" section MUST match the name used 
-    everywhere else for your component. Whatever the name of 
-    this XML file is, the namespace must match (ignoring CamelCase). 
-    -->
-    <namespace path="src/">JohnSmith\Component\HelloWorld</namespace>
-            
+    
+    <install> <!-- Runs on install -->
+        <sql>
+            <file driver="mysql" charset="utf8">sql/install.mysql.utf8.sql</file>
+        </sql>
+    </install>
+    <update> <!-- Runs on update -->
+        <schemas>
+            <schemapath type="mysql">sql/updates</schemapath>
+        </schemas>
+    </update>
+    <uninstall> <!-- Runs on uninstall -->
+        <sql>
+            <file driver="mysql" charset="utf8">sql/uninstall.mysql.utf8.sql</file>
+        </sql>
+    </uninstall>
+
+    
+
+    <files folder="site">
+        <folder>src</folder>
+        
+        <folder>tmpl</folder>
+    </files>
+    <media destination="com_helloworld" folder="media">
+        <folder>css</folder>
+        <folder>js</folder>
+        <filename>joomla.asset.json</filename>
+    </media>
+    <languages folder="site/languages">
+        
+			<language tag="ar-AA">ar-AA/com_helloworld.ini</language>
+			<language tag="en-GB">en-GB/com_helloworld.ini</language>
+			<language tag="fr-FR">fr-FR/com_helloworld.ini</language>
+    </languages>
     <administration>
-        <!-- The link that will appear in the Admin panel's "Components" menu -->
-        <menu link="index.php?option=com_helloworld">Hello World</menu>
-        <!-- List of files and folders to copy. Note the 'folder' attribute.
-             This is the name of the folder in your component package to copy FROM -->
-        <files folder="admin/">
-            <folder>services</folder>
+        <menu>COM_HELLOWORLD</menu>
+        <submenu>
+            
+			<menu link="option=com_helloworld&amp;view=helloworlds" view="helloworlds" alt="Helloworld/Helloworlds">COM_HELLOWORLD_TITLE_HELLOWORLDS</menu>
+
+        </submenu>
+        <files folder="administrator">
+            <filename>access.xml</filename>
+            <filename>config.xml</filename>
+            
             <folder>src</folder>
             <folder>tmpl</folder>
+            <folder>services</folder>
+            <folder>presets</folder>
+            <folder>sql</folder>
         </files>
+        <languages folder="administrator/languages">
+            
+			<language tag="ar-AA">ar-AA/com_helloworld.ini</language>
+			<language tag="ar-AA">ar-AA/com_helloworld.sys.ini</language>
+			<language tag="en-GB">en-GB/com_helloworld.ini</language>
+			<language tag="en-GB">en-GB/com_helloworld.sys.ini</language>
+			<language tag="fr-FR">fr-FR/com_helloworld.ini</language>
+			<language tag="fr-FR">fr-FR/com_helloworld.sys.ini</language>
+        </languages>
     </administration>
+    <config>
+        <fields name="params">
+            <fieldset name="component">
+                <field name="save_history" default="0" />
+            </fieldset>
+        </fields>
+    </config>
+    <plugins>
+    </plugins>
+    
 
+    <updateservers>
+        <server type="extension" priority="1" name="com_helloworld">https://www.component-creator.com/index.php?task=builder.preupdatecheckhook&amp;option=com_combuilder&amp;component=NzI2MDUtMjA0MDE0</server>
+    </updateservers>
 </extension>
+<!-- Component built by the Joomla Component Creator -->
+<!-- http://www.component-creator.com/ -->
