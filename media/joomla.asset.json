@@ -1,0 +1,29 @@
+{
+  "$schema": "https://developer.joomla.org/schemas/json-schema/web_assets.json",
+  "name": "com_helloworld",
+  "version": "CVS: 1.0.0",
+  "license": "GNU General Public License version 2 ou version ultérieure ; Voir LICENSE.txt",
+  "assets": [
+    {
+      "name": "com_helloworld.admin",
+      "type": "style",
+      "uri": "com_helloworld/admin.css"
+    },
+    {
+      "name": "com_helloworld.admin",
+      "type": "script",
+      "uri": "com_helloworld/admin.js",
+      "dependencies": [
+        "jquery"
+      ],
+      "attributes": {
+        "defer": true
+      }
+    },
+    {
+        "name": "com_helloworld.list",
+        "type": "style",
+        "uri": "com_helloworld/list.css"
+    }
+  ]
+}

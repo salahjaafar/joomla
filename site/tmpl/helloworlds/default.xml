@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<metadata>
+	<layout title="COM_HELLOWORLD_TITLE_LIST_VIEW_HELLOWORLDS" option="View">
+        <message>
+                        <![CDATA[COM_HELLOWORLD_TITLE_LIST_VIEW_HELLOWORLDS_DESC]]>
+        </message>
+	</layout>
+	
+</metadata>
